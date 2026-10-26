@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm --filter @susi/nest build",
   "functions": {
     "api/*.ts": {
       "includeFiles": "data/*.json"
