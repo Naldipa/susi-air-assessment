@@ -33,7 +33,7 @@ Nuxt 3 is required by the assessment. Nuxt's official documentation states that 
       src/schedules/      Month filtering and duty legend
       src/pilot/          Pilot profile
     nuxt/                 Nuxt pages, Pinia store, components, and styles
-    api/[...path].ts     Vercel serverless adapter for the NestJS API
+    api/handler.js       Vercel serverless adapter for the NestJS API
     vercel.json           Vercel function build and data-file configuration
     render.yaml           Retained for reference; not used for Vercel deployment
     .node-version         Pinned Node.js version
