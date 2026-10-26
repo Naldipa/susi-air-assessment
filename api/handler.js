@@ -22,5 +22,22 @@ module.exports = async function handler(request, response) {
   const remainingQuery = rewrittenUrl.searchParams.toString();
   request.url = `/${apiPath.replace(/^\/+/, '')}${remainingQuery ? `?${remainingQuery}` : ''}`;
 
+  const cleanQuery = Object.create(null);
+  for (const [key, value] of rewrittenUrl.searchParams) {
+    if (Object.hasOwn(cleanQuery, key)) {
+      cleanQuery[key] = Array.isArray(cleanQuery[key])
+        ? [...cleanQuery[key], value]
+        : [cleanQuery[key], value];
+    } else {
+      cleanQuery[key] = value;
+    }
+  }
+  Object.defineProperty(request, 'query', {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value: cleanQuery,
+  });
+
   app.getHttpAdapter().getInstance()(request, response);
 };
