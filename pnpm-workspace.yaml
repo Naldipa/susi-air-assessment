@@ -1,0 +1,7 @@
+packages:
+  - nest
+  - nuxt
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild

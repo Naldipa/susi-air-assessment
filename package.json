@@ -1,0 +1,13 @@
+{
+  "name": "susi-air-pilot-dashboard",
+  "private": true,
+  "packageManager": "pnpm@10.28.1",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @susi/nest --filter @susi/nuxt dev",
+    "dev:api": "pnpm --filter @susi/nest dev",
+    "dev:web": "pnpm --filter @susi/nuxt dev",
+    "build": "pnpm --filter @susi/nest build && pnpm --filter @susi/nuxt build",
+    "typecheck": "pnpm --filter @susi/nest typecheck && pnpm --filter @susi/nuxt typecheck",
+    "test": "pnpm --filter @susi/nest test && pnpm --filter @susi/nuxt test"
+  }
+}

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: susi-air-api
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: pnpm install --frozen-lockfile && pnpm --filter @susi/nest build
+    startCommand: pnpm --filter @susi/nest start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: ../data
+      - key: ASSESSMENT_TODAY
+        value: "2026-05-15"
+      - key: TOKEN_SECRET
+        generateValue: true
+      - key: DEMO_USERNAME
+        sync: false
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
